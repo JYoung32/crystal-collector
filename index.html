@@ -1,4 +1,4 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,32 +10,54 @@
 <title>Crystal Collector</title>
 </head>
 <body>
-    <div class="wrapper">
-        <div id="title">
-            <h1>Crystals Collector~</h1>
-        </div>
-        <div id="info">
+    <div class="container-fluid">
+        
+        <div class="jumbotron text-center mt-3">
+            <h1 class="display-4">~Crystals Collector~</h1>
+            <p class="lead">Welcome to Crystals Collector! Below are some instructions on how to play!</p>
+            <hr class="my-4">
             <p>You will be given a random number at the start of the game.</p>
             <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
             <p>You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.</p>
             <p>The value of each crystal is hidden from you until you click on it.</p>
-            <p>Each time when the game starts, the game will change the value of each crystal</p>
+            <p>Each time when the game starts, the game will change the value of each crystal</p>                  
         </div>
-        <div id="randomNumber"></div>
-        <div id="scoreboard">
-            <p id="wins">Wins:</p>
-            <p id="loses">Loses:</p>
+        
+        <div class="d-flex flew-row justify-content-center">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Points Needed:</h5>
+                    <p class="card-text" id="randomNumber">Random Points to achieve</p>    
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Your current point total:</h5>
+                    <p id="currentPoints">points</p>
+                </div>
+            </div>
         </div>
-        <div id="crystalGroup">
-            <div id="crystalOne"></div>
-            <div id="crystalTwo"></div>
-            <div id="crystalThree"></div>
-            <div id="crystalFour"></div>
+
+        <div id="crystalGroup" class="d-flex flex-row justify-content-center">
+            <div id="crystalOne">1</div>
+            <div id="crystalTwo">2</div>
+            <div id="crystalThree">3</div>
+            <div id="crystalFour">4</div>
         </div>
-        <div>
-            Your total score is:
-            <div id="currentPoints"></div>
+
+        <div id="scoreboard" class="d-flex justify-content-center">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">ScoreBoard:</h5>
+                    <p id="wins">Wins:</p>
+                    <p id="loses">Loses:</p>      
+                </div>
+            </div>       
         </div>
+        
+
+        
+
     </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>

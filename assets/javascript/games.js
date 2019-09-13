@@ -28,24 +28,31 @@ $("#randomNumber").html(randomNumber);
 function crystalNum(){
     return Math.floor(Math.random() * 12) + 1;
 }
-$("#crystalOne").val(crystalOne);
-$("#crystalTwo").val(crystalTwo);
-$("#crystalThree").val(crystalThree);
-$("#crystalFour").val(crystalFour);
 
-
-$("#crystalOne").on("click", function(){
-    $("#currentPoints).html()
-})
 console.log(crystalOne);
 console.log(crystalTwo);
 console.log(crystalThree);
 console.log(crystalFour);
-//append random value to 4 crystals
 
 //click events for each crystal
-$("#crystalOne").on('click', function(){
+$("#crystalOne").on("click", function(){
+    currentNumber += crystalOne; 
+    $("#currentPoints").html(currentNumber);
+});
 
+$("#crystalTwo").on("click", function(){
+    currentNumber += crystalTwo;
+    $("#currentPoints").html(currentNumber);
+});
+
+$("#crystalThree").on("click", function(){
+    currentNumber += crystalThree;
+    $("#currentPoints").html(currentNumber);
+});
+
+$("#crystalFour").on("click", function(){
+    currentNumber += crystalFour;
+    $("#currentPoints").html(currentNumber);
 });
 
 });

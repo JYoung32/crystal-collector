@@ -24,103 +24,69 @@ function intialize(){
 
     $("#currentPoints").html(currentNumber);
     $("#randomNumber").html(randomNumber);
-
-    console.log(randomNumber);
-    console.log(crystalOne);
-    console.log(crystalTwo);
-    console.log(crystalThree);
-    console.log(crystalFour);
 }
-
 //make a function to generate random number between 19 - 120
 function randomNum(min, max){
     return randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
 };
-console.log(randomNumber);
-
 $("#randomNumber").html(randomNumber);
 //make a function to generate a random number for crystals; value 1-12
 function crystalNum(){
     return Math.floor(Math.random() * 12) + 1;
 }
-
-console.log(crystalOne);
-console.log(crystalTwo);
-console.log(crystalThree);
-console.log(crystalFour);
-
+//win function
+function win(){
+    wins++;
+    alert("Congratulations! You Win!")
+    $("#wins").html("Wins: " + wins);
+    intialize();
+}
+//lose function
+function lose(){
+    loses++;
+    alert("Maybe next time.")
+    $("#loses").html("Loses: " + loses);
+    intialize();
+}
 //click events for each crystal
 $("#crystalOne").on("click", function(){
     currentNumber += crystalOne; 
     $("#currentPoints").html(currentNumber);
-
     if (currentNumber === randomNumber){
-        wins++;
-        $("#wins").html("Wins: " + wins);
-        intialize();
+        win();
     } else if (currentNumber > randomNumber){
-        loses++;
-        $("#loses").html("Loses: " + loses);
-        intialize();
+        lose();
     };
 });
 
 $("#crystalTwo").on("click", function(){
     currentNumber += crystalTwo;
     $("#currentPoints").html(currentNumber);
-
     if (currentNumber === randomNumber){
-        wins++;
-        $("#wins").html("Wins: " + wins);
-        intialize();
+        win();
     } else if (currentNumber > randomNumber){
-        loses++;
-        $("#loses").html("Loses: " + loses);
-        intialize();
+        lose();
     };
 });
 
 $("#crystalThree").on("click", function(){
     currentNumber += crystalThree;
     $("#currentPoints").html(currentNumber);
-
     if (currentNumber === randomNumber){
-        wins++;
-        $("#wins").html("Wins: " + wins);
-        intialize();
+        win();
     } else if (currentNumber > randomNumber){
-        loses++;
-        $("#loses").html("Loses: " + loses);
-        intialize();
+        lose();
     };
 });
 
 $("#crystalFour").on("click", function(){
     currentNumber += crystalFour;
     $("#currentPoints").html(currentNumber);
-
     if (currentNumber === randomNumber){
-        wins++;
-        $("#wins").html("Wins: " + wins);
-        intialize();
+        win();
     } else if (currentNumber > randomNumber){
-        loses++;
-        $("#loses").html("Loses: " + loses);
-        intialize();
+        lose();
     };
 });
-
-//win and loss condition
-if (currentNumber === randomNumber){
-    wins++;
-    randomNum(19, 120);
-    crystalNum();
-    $("#wins").html("Wins: " + wins);
-} else if (currentNumber > randomNumber){
-    loses++;
-    randomNum(19, 120);
-    crystalNum();
-    $("#loses").html("Loses: " + loses);
-};
 
 });

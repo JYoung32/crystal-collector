@@ -51,7 +51,7 @@ $(document).ready(function(){
     };
 
     addPoints = (crystal) => {
-        currentNumber += crystal
+        currentNumber += crystal;
         $("#currentPoints").html(currentNumber);
         comparePoints();
         return

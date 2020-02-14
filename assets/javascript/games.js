@@ -7,16 +7,10 @@
 $(document).ready(function(){
     //variable to store data onto html page
     let randomNumber, currentNumber, crystalOne, crystalTwo, crystalThree, crystalFour ;
-    let wins = 0; 
-    let loses = 0;
+    let [wins, loses] = [0, 0]; 
 
     intialize = () => {
-        randomNumber = randomNum(19,120);
-        currentNumber = 0;
-        crystalOne = crystalNum();
-        crystalTwo = crystalNum();
-        crystalThree = crystalNum();
-        crystalFour = crystalNum(); 
+        [randomNumber, currentNumber, crystalOne, crystalTwo, crystalThree, crystalFour] = [randomNum(19,120), 0, crystalNum(), crystalNum(), crystalNum(), crystalNum()];
 
         $("#currentPoints").html(currentNumber);
         $("#randomNumber").html(randomNumber);
@@ -27,8 +21,6 @@ $(document).ready(function(){
         return randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
     };
 
-    $("#randomNumber").html(randomNumber);
-
     //make a function to generate a random number for crystals; value 1-12
     crystalNum = () => {
         return Math.floor(Math.random() * 12) + 1;
@@ -37,16 +29,16 @@ $(document).ready(function(){
     //win function
     win = () => {
         wins++;
-        alert("Congratulations! You Win!");
-        $("#wins").html("Wins: " + wins);
+        alert(`Congratulations! You Win!`);
+        $("#wins").html(`Wins: ${wins}`);
         intialize();
     };
 
     //lose function
     lose = () => {
         loses++;
-        alert("Maybe next time.");
-        $("#loses").html("Loses: " + loses);
+        alert(`Maybe next time.`);
+        $("#loses").html(`Loses: ${loses}`);
         intialize();
     };
 
@@ -58,30 +50,19 @@ $(document).ready(function(){
         };
     };
 
+    addPoints = (crystal) => {
+        currentNumber += crystal
+        $("#currentPoints").html(currentNumber);
+        comparePoints();
+        return
+    }
+
+    $("#randomNumber").html(randomNumber);
     //click events for each crystal
-    $("#crystalOne").on("click", function(){
-        currentNumber += crystalOne; 
-        $("#currentPoints").html(currentNumber);
-        comparePoints();
-    });
-
-    $("#crystalTwo").on("click", function(){
-        currentNumber += crystalTwo;
-        $("#currentPoints").html(currentNumber);
-        comparePoints();
-    });
-
-    $("#crystalThree").on("click", function(){
-        currentNumber += crystalThree;
-        $("#currentPoints").html(currentNumber);
-        comparePoints();
-    });
-
-    $("#crystalFour").on("click", function(){
-        currentNumber += crystalFour;
-        $("#currentPoints").html(currentNumber);
-        comparePoints();
-    });
+    $("#crystalOne").on("click", () => { addPoints(crystalOne) } );
+    $("#crystalTwo").on("click", () => { addPoints(crystalTwo) } );
+    $("#crystalThree").on("click", () => { addPoints(crystalThree) } );
+    $("#crystalFour").on("click", () => { addPoints(crystalFour) } );
 
     intialize();
 

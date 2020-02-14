@@ -4,7 +4,7 @@
 // 4- if user score is the same as random number; user wins; if score goes above random number, user loses.
 // 5- when win/loss, game restarts. on restart, load new random number to achieve and randomize 4 crystal values
 
-$(document).ready(function(){
+$(document).ready( () => {
     //variable to store data onto html page
     let randomNumber, currentNumber, crystalOne, crystalTwo, crystalThree, crystalFour ;
     let [wins, loses] = [0, 0]; 
@@ -55,7 +55,7 @@ $(document).ready(function(){
         $("#currentPoints").html(currentNumber);
         comparePoints();
         return
-    }
+    };
 
     $("#randomNumber").html(randomNumber);
     //click events for each crystal

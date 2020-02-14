@@ -10,20 +10,15 @@ $(document).ready( () => {
     let [wins, loses] = [0, 0]; 
 
     intialize = () => {
-        [randomNumber, currentNumber, crystalOne, crystalTwo, crystalThree, crystalFour] = [randomNum(19,120), 0, crystalNum(), crystalNum(), crystalNum(), crystalNum()];
+        [randomNumber, currentNumber, crystalOne, crystalTwo, crystalThree, crystalFour] = [randomNum(19,120), 0, randomNum(1,12), randomNum(1,12), randomNum(1,12), randomNum(1,12)];
 
         $("#currentPoints").html(currentNumber);
         $("#randomNumber").html(randomNumber);
     };
 
-    //make a function to generate random number between 19 - 120
+    //make a function to generate random number between min&max
     randomNum = (min, max) => {
-        return randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
-    };
-
-    //make a function to generate a random number for crystals; value 1-12
-    crystalNum = () => {
-        return Math.floor(Math.random() * 12) + 1;
+        return Math.floor(Math.random() * (max - min + 1) + min);
     };
 
     //win function
@@ -65,5 +60,4 @@ $(document).ready( () => {
     $("#crystalFour").on("click", () => { addPoints(crystalFour) } );
 
     intialize();
-
 });
